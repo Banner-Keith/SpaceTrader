@@ -4,7 +4,7 @@
  *
  * Copyright (C) 2016 Keith Banner, All Rights Reserved
  *
- * Additional coding by David Pierron & Jay French
+ * Port to Windows by David Pierron & Jay French
  * Original coding by Pieter Spronck, Sam Anderson, Samuel Goldstein, Matt Lee
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -270,15 +270,9 @@ namespace SpaceTrader
 
         public static void RandSeed(int seed1, int seed2)
         {
-            if (seed1 > 0)
-                SeedX = seed1;   /* use default seeds if parameter is 0 */
-            else
-                SeedX = Defseedx;
+            SeedX = seed1 > 0 ? seed1 : Defseedx;
 
-            if (seed2 > 0)
-                SeedY = seed2;
-            else
-                SeedY = Defseedy;
+            SeedY = seed2 > 0 ? seed2 : Defseedy;
         }
 
         public static bool SaveFile(string fileName, object toSerialize, System.Windows.Forms.IWin32Window owner)
@@ -302,8 +296,7 @@ namespace SpaceTrader
             }
             finally
             {
-                if (outStream != null)
-                    outStream.Close();
+                outStream?.Close();
             }
 
             return saveOk;

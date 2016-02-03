@@ -4,7 +4,7 @@
  *
  * Copyright (C) 2016 Keith Banner, All Rights Reserved
  *
- * Additional coding by David Pierron & Jay French
+ * Port to Windows by David Pierron & Jay French
  * Original coding by Pieter Spronck, Sam Anderson, Samuel Goldstein, Matt Lee
  *
  * This program is free software; you can redistribute it and/or modify it

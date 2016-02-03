@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 // associated with an assembly.
 //
 [assembly: AssemblyTitle("Space Trader for Windows")]
-[assembly: AssemblyDescription("Space Trader for Windows by Keith Banner. Ported from the Palm version by Jay French, with Additional coding by David Pierron & Jay French. Palm version by Pieter Spronck.")]
+[assembly: AssemblyDescription("Space Trader for Windows by Keith Banner. Ported from the Palm version by Jay French, with Port to Windows by David Pierron & Jay French. Palm version by Pieter Spronck.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
