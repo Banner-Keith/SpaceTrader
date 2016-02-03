@@ -1,3 +1,4 @@
+using System.Resources;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -7,11 +8,11 @@ using System.Runtime.CompilerServices;
 // associated with an assembly.
 //
 [assembly: AssemblyTitle("Space Trader for Windows")]
-[assembly: AssemblyDescription("Ported from the Palm version by Jay French, with additional coding by David Pierron. Palm version by Pieter Spronck.")]
+[assembly: AssemblyDescription("Space Trader for Windows by Keith Banner. Ported from the Palm version by Jay French, with Additional coding by David Pierron & Jay French. Palm version by Pieter Spronck.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright 2008 Jay French")]
+[assembly: AssemblyCopyright("Copyright 2016 Keith Banner")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -26,7 +27,7 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("2.01.*")]
+[assembly: AssemblyVersion("1.0.*")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the
@@ -56,3 +57,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
+[assembly: NeutralResourcesLanguage("en-US")]
+

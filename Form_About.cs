@@ -1,10 +1,10 @@
 /*******************************************************************************
  *
- * Space Trader for Windows 2.01
+ * Space Trader for Windows 1.00
  *
- * Copyright (C) 2008 Jay French, All Rights Reserved
+ * Copyright (C) 2016 Keith Banner, All Rights Reserved
  *
- * Additional coding by David Pierron
+ * Additional coding by David Pierron & Jay French
  * Original coding by Pieter Spronck, Sam Anderson, Samuel Goldstein, Matt Lee
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -19,7 +19,7 @@
  * If you'd like a copy of the GNU General Public License, go to
  * http://www.gnu.org/copyleft/gpl.html.
  *
- * You can contact the author at spacetrader@frenchfryz.com
+ * You can contact the author at spacetrader@kb4000.com
  *
  ******************************************************************************/
 
@@ -87,7 +87,7 @@ namespace SpaceTrader
 			this.lblTitle.Name = "lblTitle";
 			this.lblTitle.Size = new System.Drawing.Size(187, 13);
 			this.lblTitle.TabIndex = 33;
-			this.lblTitle.Text = "Space Trader for Windows 2.01";
+			this.lblTitle.Text = "Space Trader for Windows 1.00";
 			// 
 			// lblAbout
 			// 
