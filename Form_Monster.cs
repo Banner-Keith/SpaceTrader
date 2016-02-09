@@ -645,7 +645,7 @@ namespace SpaceTrader
 				if (system.ShowSpecialButton())
 					quests.Add((int)system.Id);
 
-				if (system.ShipyardId != ShipyardId.NA)
+				if (system.ShipyardId != ShipyardId.Na)
 					shipyards.Add((int)system.Id);
 			}
 			questSystemIds		= (int[])quests.ToArray(System.Type.GetType("System.Int32"));

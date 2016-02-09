@@ -403,54 +403,18 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public string CommanderName
-		{
-			get
-			{
-				return txtName.Text;
-			}
-		}
+		public string CommanderName => txtName.Text;
 
-		public Difficulty Difficulty
-		{
-			get
-			{
-				return (Difficulty)selDifficulty.SelectedIndex;
-			}
-		}
+	    public Difficulty Difficulty => (Difficulty)selDifficulty.SelectedIndex;
 
-		public int Pilot
-		{
-			get
-			{
-				return (int)numPilot.Value;
-			}
-		}
+	    public int Pilot => (int)numPilot.Value;
 
-		public int Fighter
-		{
-			get
-			{
-				return (int)numFighter.Value;
-			}
-		}
+	    public int Fighter => (int)numFighter.Value;
 
-		public int Trader
-		{
-			get
-			{
-				return (int)numTrader.Value;
-			}
-		}
+	    public int Trader => (int)numTrader.Value;
 
-		public int Engineer
-		{
-			get
-			{
-				return (int)numEngineer.Value;
-			}
-		}
+	    public int Engineer => (int)numEngineer.Value;
 
-		#endregion
+	    #endregion
 	}
 }

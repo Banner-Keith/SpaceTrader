@@ -27,164 +27,80 @@ using System;
 
 namespace SpaceTrader
 {
-	public class PoliticalSystem
-	{
-		#region Member Declarations
+    public class PoliticalSystem
+    {
+        #region Member Declarations
 
-		private PoliticalSystemType	_type;
-		private int									_reactionIllegal;	// Reaction level of illegal goods 0 = total acceptance (determines how police reacts if they find you carry them)
-		private Activity						_activityPolice;	// Activity level of police force 0 = no police (determines occurrence rate)
-		private Activity						_activityPirates;	// Activity level of pirates 0 = no pirates
-		private Activity						_activityTraders;	// Activity level of traders 0 = no traders
-		private TechLevel						_minTech;					// Mininum tech level needed
-		private TechLevel						_maxTech;					// Maximum tech level where this is found
-		private int									_bribeLevel;			// Indicates how easily someone can be bribed 0 = unbribeable/high bribe costs
-		private bool								_drugsOk;					// Drugs can be traded (if not, people aren't interested or the governemnt is too strict)
-		private bool								_firearmsOk;			// Firearms can be traded (if not, people aren't interested or the governemnt is too strict)
-		private TradeItemType				_wanted;					// Tradeitem requested in particular in this type of government
+        #endregion
 
-		#endregion
+        #region Methods
 
-		#region Methods
+        public PoliticalSystem(PoliticalSystemType type, int reactionIllegal, Activity activityPolice, Activity activityPirates,
+            Activity activityTraders, TechLevel minTechLevel, TechLevel maxTechLevel, int bribeLevel, bool drugsOk,
+            bool firearmsOk, TradeItemType wanted)
+        {
+            Type = type;
+            ReactionIllegal = reactionIllegal;
+            ActivityPolice = activityPolice;
+            ActivityPirates = activityPirates;
+            ActivityTraders = activityTraders;
+            MinimumTechLevel = minTechLevel;
+            MaximumTechLevel = maxTechLevel;
+            BribeLevel = bribeLevel;
+            DrugsOk = drugsOk;
+            FirearmsOk = firearmsOk;
+            Wanted = wanted;
+        }
 
-		public PoliticalSystem(PoliticalSystemType type, int reactionIllegal, Activity activityPolice, Activity activityPirates,
-			Activity activityTraders, TechLevel minTechLevel, TechLevel maxTechLevel, int bribeLevel, bool drugsOk,
-			bool firearmsOk, TradeItemType wanted)
-		{
-			_type							= type;
-			_reactionIllegal	= reactionIllegal;
-			_activityPolice		= activityPolice;
-			_activityPirates	= activityPirates;
-			_activityTraders	= activityTraders;
-			_minTech					= minTechLevel;
-			_maxTech					= maxTechLevel;
-			_bribeLevel				= bribeLevel;
-			_drugsOk					= drugsOk;
-			_firearmsOk				= firearmsOk;
-			_wanted						= wanted;
-		}
+        public bool ShipTypeLikely(ShipType shipType, OpponentType oppType)
+        {
+            bool likely = false;
+            int diffMod = Math.Max(0, (int)Game.CurrentGame.Difficulty - (int)Difficulty.Normal);
 
-		public bool ShipTypeLikely(ShipType shipType, OpponentType oppType)
-		{
-			bool	likely	= false;
-			int		diffMod	= Math.Max(0, (int)Game.CurrentGame.Difficulty - (int)Difficulty.Normal);
+            switch (oppType)
+            {
+                case OpponentType.Pirate:
+                    likely = (int)ActivityPirates + diffMod >= (int)Consts.ShipSpecs[(int)shipType].Pirates;
+                    break;
+                case OpponentType.Police:
+                    likely = (int)ActivityPolice + diffMod >= (int)Consts.ShipSpecs[(int)shipType].Police;
+                    break;
+                case OpponentType.Trader:
+                    likely = (int)ActivityTraders + diffMod >= (int)Consts.ShipSpecs[(int)shipType].Traders;
+                    break;
+            }
 
-			switch (oppType)
-			{
-				case OpponentType.Pirate:
-					likely	= (int)ActivityPirates + diffMod >= (int)Consts.ShipSpecs[(int)shipType].Pirates;
-					break;
-				case OpponentType.Police:
-					likely	= (int)ActivityPolice + diffMod >= (int)Consts.ShipSpecs[(int)shipType].Police;
-					break;
-				case OpponentType.Trader:
-					likely	= (int)ActivityTraders + diffMod >= (int)Consts.ShipSpecs[(int)shipType].Traders;
-					break;
-			}
+            return likely;
+        }
 
-			return likely;
-		}
+        #endregion
 
-		#endregion
+        #region Properties
 
-		#region Properties
+        public Activity ActivityPirates { get; }
 
-		public Activity ActivityPirates
-		{
-			get
-			{
-				return _activityPirates;
-			}
-		}
+        public Activity ActivityPolice { get; }
 
-		public Activity ActivityPolice
-		{
-			get
-			{
-				return _activityPolice;
-			}
-		}
+        public Activity ActivityTraders { get; }
 
-		public Activity ActivityTraders
-		{
-			get
-			{
-				return _activityTraders;
-			}
-		}
+        public int BribeLevel { get; }
 
-		public int BribeLevel
-		{
-			get
-			{
-				return _bribeLevel;
-			}
-		}
+        public bool DrugsOk { get; }
 
-		public bool DrugsOk
-		{
-			get
-			{
-				return _drugsOk;
-			}
-		}
+        public bool FirearmsOk { get; }
 
-		public bool FirearmsOk
-		{
-			get
-			{
-				return _firearmsOk;
-			}
-		}
+        public TechLevel MaximumTechLevel { get; }
 
-		public TechLevel MaximumTechLevel
-		{
-			get
-			{
-				return _maxTech;
-			}
-		}
+        public TechLevel MinimumTechLevel { get; }
 
-		public TechLevel MinimumTechLevel
-		{
-			get
-			{
-				return _minTech;
-			}
-		}
+        public string Name => Strings.PoliticalSystemNames[(int)Type];
 
-		public string Name
-		{
-			get
-			{
-				return Strings.PoliticalSystemNames[(int)_type];
-			}
-		}
+        public int ReactionIllegal { get; }
 
-		public int ReactionIllegal
-		{
-			get
-			{
-				return _reactionIllegal;
-			}
-		}
+        public PoliticalSystemType Type { get; }
 
-		public PoliticalSystemType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+        public TradeItemType Wanted { get; }
 
-		public TradeItemType Wanted
-		{
-			get
-			{
-				return _wanted;
-			}
-		}
-
-		#endregion
-	}
+        #endregion
+    }
 }

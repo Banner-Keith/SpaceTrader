@@ -123,7 +123,7 @@ namespace SpaceTrader
             if (netPrice > 0 && Debt > 0)
                 FormAlert.Alert(AlertType.DebtNoBuy, owner);
             else if (netPrice > CashToSpend)
-                FormAlert.Alert(AlertType.ShipBuyIF, owner);
+                FormAlert.Alert(AlertType.ShipBuyIf, owner);
             else if (specToBuy.CrewQuarters < Ship.SpecialCrew.Length)
             {
                 string passengers = Ship.SpecialCrew[1].Name;
@@ -170,7 +170,7 @@ namespace SpaceTrader
                 }
 
                 if (netPrice + extraCost > CashToSpend)
-                    FormAlert.Alert(AlertType.ShipBuyIFTransfer, owner);
+                    FormAlert.Alert(AlertType.ShipBuyIfTransfer, owner);
 
                 extraCost = 0;
 
@@ -245,13 +245,7 @@ namespace SpaceTrader
             }
         }
 
-        public int CashToSpend
-        {
-            get
-            {
-                return _cash - (Game.CurrentGame.Options.ReserveMoney ? Game.CurrentGame.CurrentCosts : 0);
-            }
-        }
+        public int CashToSpend => _cash - (Game.CurrentGame.Options.ReserveMoney ? Game.CurrentGame.CurrentCosts : 0);
 
         public int Days
         {
@@ -349,13 +343,7 @@ namespace SpaceTrader
             }
         }
 
-        public int[] PriceCargo
-        {
-            get
-            {
-                return _priceCargo;
-            }
-        }
+        public int[] PriceCargo => _priceCargo;
 
         public int ReputationScore
         {
@@ -381,13 +369,7 @@ namespace SpaceTrader
             }
         }
 
-        public int Worth
-        {
-            get
-            {
-                return Ship.Price + _cash - _debt + (Game.CurrentGame.QuestStatusMoon > 0 ? SpecialEvent.MoonCost : 0);
-            }
-        }
+        public int Worth => Ship.Price + _cash - _debt + (Game.CurrentGame.QuestStatusMoon > 0 ? SpecialEvent.MoonCost : 0);
 
         #endregion
     }

@@ -27,163 +27,115 @@ using System.Collections;
 
 namespace SpaceTrader
 {
-	public abstract class Equipment : STSerializableObject
-	{
-		#region Member Declarations
+    public abstract class Equipment : STSerializableObject
+    {
+        #region Member Declarations
 
-		protected EquipmentType	_equipType;
-		protected int						_price;
-		protected TechLevel			_minTech;
-		protected int						_chance;
+        protected EquipmentType _equipType;
+        protected int _price;
+        protected TechLevel _minTech;
+        protected int _chance;
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		public Equipment(EquipmentType type, int price, TechLevel minTechLevel, int chance)
-		{
-			_equipType	= type;
-			_price			= price;
-			_minTech		= minTechLevel;
-			_chance			= chance;
-		}
+        public Equipment(EquipmentType type, int price, TechLevel minTechLevel, int chance)
+        {
+            _equipType = type;
+            _price = price;
+            _minTech = minTechLevel;
+            _chance = chance;
+        }
 
-		public Equipment(Hashtable hash): base(hash)
-		{
-			_equipType	= (EquipmentType)GetValueFromHash(hash, "_equipType");
-			_price			= (int)GetValueFromHash(hash, "_price");
-			_minTech		= (TechLevel)GetValueFromHash(hash, "_minTech");
-			_chance			= (int)GetValueFromHash(hash, "_chance");
-		}
+        public Equipment(Hashtable hash) : base(hash)
+        {
+            _equipType = (EquipmentType)GetValueFromHash(hash, "_equipType");
+            _price = (int)GetValueFromHash(hash, "_price");
+            _minTech = (TechLevel)GetValueFromHash(hash, "_minTech");
+            _chance = (int)GetValueFromHash(hash, "_chance");
+        }
 
-		public abstract Equipment Clone();
+        public abstract Equipment Clone();
 
-		public override Hashtable Serialize()
-		{
-			Hashtable	hash	= base.Serialize();
+        public override Hashtable Serialize()
+        {
+            Hashtable hash = base.Serialize();
 
-			hash.Add("_equipType",	(int)_equipType);
-			hash.Add("_price",			_price);
-			hash.Add("_minTech",		(int)_minTech);
-			hash.Add("_chance",			_chance);
+            hash.Add("_equipType", (int)_equipType);
+            hash.Add("_price", _price);
+            hash.Add("_minTech", (int)_minTech);
+            hash.Add("_chance", _chance);
 
-			return hash;
-		}
+            return hash;
+        }
 
-		public override string ToString()
-		{
-			return Name;
-		}
+        public override string ToString()
+        {
+            return Name;
+        }
 
-		public abstract bool TypeEquals(object type);
+        public abstract bool TypeEquals(object type);
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		protected int BaseImageIndex
-		{
-			get
-			{
-				int	baseImageIndex	= 0;
+        protected int BaseImageIndex
+        {
+            get
+            {
+                int baseImageIndex = 0;
 
-				switch (EquipmentType)
-				{
-					case EquipmentType.Gadget:
-						baseImageIndex	= Strings.WeaponNames.Length + Strings.ShieldNames.Length;
-						break;
-					case EquipmentType.Shield:
-						baseImageIndex	= Strings.WeaponNames.Length;
-						break;
-					case EquipmentType.Weapon:
-						// baseImageIndex should be 0
-						break;
-				}
+                switch (EquipmentType)
+                {
+                    case EquipmentType.Gadget:
+                        baseImageIndex = Strings.WeaponNames.Length + Strings.ShieldNames.Length;
+                        break;
+                    case EquipmentType.Shield:
+                        baseImageIndex = Strings.WeaponNames.Length;
+                        break;
+                    case EquipmentType.Weapon:
+                        // baseImageIndex should be 0
+                        break;
+                }
 
-				return baseImageIndex;
-			}
-		}
+                return baseImageIndex;
+            }
+        }
 
-		public int Chance
-		{
-			get
-			{
-				return _chance;
-			}
-		}
+        public int Chance => _chance;
 
-		public EquipmentType EquipmentType
-		{
-			get
-			{
-				return _equipType;
-			}
-		}
+        public EquipmentType EquipmentType => _equipType;
 
-		public System.Drawing.Image Image
-		{
-			get
-			{
-				return Game.CurrentGame.ParentWindow.EquipmentImages.Images[BaseImageIndex + (int)SubType];
-			}
-		}
+        public System.Drawing.Image Image => Game.CurrentGame.ParentWindow.EquipmentImages.Images[BaseImageIndex + (int)SubType];
 
-		public TechLevel MinimumTechLevel
-		{
-			get
-			{
-				return _minTech;
-			}
-		}
+        public TechLevel MinimumTechLevel => _minTech;
 
-		public virtual string Name
-		{
-			get
-			{
-				return "";
-			}
-		}
+        public virtual string Name => "";
 
-		public int Price
-		{
-			get
-			{
-				Commander	cmdr	= Game.CurrentGame.Commander;
-				int				price	= 0;
+        public int Price
+        {
+            get
+            {
+                Commander cmdr = Game.CurrentGame.Commander;
+                int price = 0;
 
-				if (cmdr != null && cmdr.CurrentSystem.TechLevel >= MinimumTechLevel)
-					price	= (_price * (100 - cmdr.Ship.Trader)) / 100;
+                if (cmdr != null && cmdr.CurrentSystem.TechLevel >= MinimumTechLevel)
+                    price = (_price * (100 - cmdr.Ship.Trader)) / 100;
 
-				return price;
-			}
-		}
+                return price;
+            }
+        }
 
-		public int SellPrice
-		{
-			get
-			{
-				return _price * 3 / 4;
-			}
-		}
+        public int SellPrice => _price * 3 / 4;
 
-		public virtual object SubType
-		{
-			get
-			{
-				return 0;
-			}
-		}
+        public virtual object SubType => 0;
 
-		public int TransferPrice
-		{
-			get
-			{
-				// The cost to transfer is 10% of the item worth. This is changed
-				// from actually PAYING the buyer about 8% to transfer items. - JAF
-				return SellPrice * 110 / 90;
-			}
-		}
+        // The cost to transfer is 10% of the item worth. This is changed
+        // from actually PAYING the buyer about 8% to transfer items. - JAF
+        public int TransferPrice => SellPrice * 110 / 90;
 
-		#endregion
-	}
+        #endregion
+    }
 }

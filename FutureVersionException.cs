@@ -27,7 +27,7 @@ using System;
 
 namespace SpaceTrader
 {
-	public class FutureVersionException : Exception
-	{
-	}
+    public class FutureVersionException : Exception
+    {
+    }
 }

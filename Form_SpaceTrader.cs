@@ -688,22 +688,22 @@ namespace SpaceTrader
 			// mnuMain
 			// 
 			this.mnuMain.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuGame,
-            this.mnuView,
-            this.mnuHelp});
+			this.mnuGame,
+			this.mnuView,
+			this.mnuHelp});
 			// 
 			// mnuGame
 			// 
 			this.mnuGame.Index = 0;
 			this.mnuGame.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuGameNew,
-            this.mnuGameLoad,
-            this.mnuGameSave,
-            this.mnuGameSaveAs,
-            this.mnuGameLine1,
-            this.mnuRetire,
-            this.mnuGameLine2,
-            this.mnuGameExit});
+			this.mnuGameNew,
+			this.mnuGameLoad,
+			this.mnuGameSave,
+			this.mnuGameSaveAs,
+			this.mnuGameLine1,
+			this.mnuRetire,
+			this.mnuGameLine2,
+			this.mnuGameExit});
 			this.mnuGame.Text = "&Game";
 			// 
 			// mnuGameNew
@@ -762,15 +762,15 @@ namespace SpaceTrader
 			// 
 			this.mnuView.Index = 1;
 			this.mnuView.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuViewCommander,
-            this.mnuViewShip,
-            this.mnuViewPersonnel,
-            this.mnuViewQuests,
-            this.mnuViewBank,
-            this.mnuViewLine1,
-            this.mnuHighScores,
-            this.mnuViewLine2,
-            this.mnuOptions});
+			this.mnuViewCommander,
+			this.mnuViewShip,
+			this.mnuViewPersonnel,
+			this.mnuViewQuests,
+			this.mnuViewBank,
+			this.mnuViewLine1,
+			this.mnuHighScores,
+			this.mnuViewLine2,
+			this.mnuOptions});
 			this.mnuView.Text = "&View";
 			// 
 			// mnuViewCommander
@@ -839,7 +839,7 @@ namespace SpaceTrader
 			// 
 			this.mnuHelp.Index = 2;
 			this.mnuHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuHelpAbout});
+			this.mnuHelpAbout});
 			this.mnuHelp.Text = "&Help";
 			// 
 			// mnuHelpAbout
@@ -875,10 +875,10 @@ namespace SpaceTrader
 			this.statusBar.Location = new System.Drawing.Point(0, 481);
 			this.statusBar.Name = "statusBar";
 			this.statusBar.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
-            this.statusBarPanelCash,
-            this.statusBarPanelBays,
-            this.statusBarPanelCosts,
-            this.statusBarPanelExtra});
+			this.statusBarPanelCash,
+			this.statusBarPanelBays,
+			this.statusBarPanelCosts,
+			this.statusBarPanelExtra});
 			this.statusBar.ShowPanels = true;
 			this.statusBar.Size = new System.Drawing.Size(768, 24);
 			this.statusBar.SizingGrip = false;
@@ -2417,7 +2417,7 @@ namespace SpaceTrader
 			this.lblSystemPressure.Name = "lblSystemPressure";
 			this.lblSystemPressure.Size = new System.Drawing.Size(168, 16);
 			this.lblSystemPressure.TabIndex = 18;
-			this.lblSystemPressure.Text = "suffering from extreme bordom.";
+			this.lblSystemPressure.Text = "suffering from extreme boredom.";
 			// 
 			// lblSystemPressurePre
 			// 
@@ -3093,12 +3093,12 @@ namespace SpaceTrader
 				{
 					int price = warpSys == null ? 0 : Consts.TradeItems[i].StandardPrice(warpSys);
 
-					lblSellPrice[i].Text		= sell[i] > 0 ? Functions.FormatMoney(sell[i]) : Strings.CargoSellNA;
+					lblSellPrice[i].Text		= sell[i] > 0 ? Functions.FormatMoney(sell[i]) : Strings.CargoSellNa;
 					btnSellQty[i].Text			= cmdr.Ship.Cargo[i].ToString();
 					btnSellQty[i].Visible		= true;
 					btnSellAll[i].Text			= sell[i] > 0 ? "All" : "Dump";
 					btnSellAll[i].Visible		= true;
-					lblBuyPrice[i].Text			= buy[i] > 0 ? Functions.FormatMoney(buy[i]) : Strings.CargoBuyNA;
+					lblBuyPrice[i].Text			= buy[i] > 0 ? Functions.FormatMoney(buy[i]) : Strings.CargoBuyNa;
 					btnBuyQty[i].Text				= cmdr.CurrentSystem.TradeItems[i].ToString();
 					btnBuyQty[i].Visible		= buy[i] > 0;
 					btnBuyMax[i].Visible		= buy[i] > 0;
@@ -3225,7 +3225,7 @@ namespace SpaceTrader
 				else if (noTech)
 					lblEscapePod.Text		= Strings.ShipyardPodNoSale;
 				else if (game.Commander.Cash < 2000)
-					lblEscapePod.Text		= Strings.ShipyardPodIF;
+					lblEscapePod.Text		= Strings.ShipyardPodIf;
 				else
 				{
 					lblEscapePod.Text		= Strings.ShipyardPodCost;
@@ -3752,7 +3752,7 @@ namespace SpaceTrader
 			if (alert.ShowDialog() != DialogResult.No)
 			{
 				if (game.Commander.CashToSpend < specEvent.Price)
-					FormAlert.Alert(AlertType.SpecialIF, this);
+					FormAlert.Alert(AlertType.SpecialIf, this);
 				else
 				{
 					try
@@ -4165,30 +4165,12 @@ namespace SpaceTrader
 			}
 		}
 
-		public ImageList DirectionImages
-		{
-			get
-			{
-				return ilDirectionImages;
-			}
-		}
+		public ImageList DirectionImages => ilDirectionImages;
 
-		public ImageList EquipmentImages
-		{
-			get
-			{
-				return ilEquipmentImages;
-			}
-		}
+	    public ImageList EquipmentImages => ilEquipmentImages;
 
-		public ImageList ShipImages
-		{
-			get
-			{
-				return ilShipImages;
-			}
-		}
+	    public ImageList ShipImages => ilShipImages;
 
-		#endregion
+	    #endregion
 	}
 }

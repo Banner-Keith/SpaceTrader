@@ -176,14 +176,8 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public int Amount
-		{
-			get
-			{
-				return (int)numAmount.Value;
-			}
-		}
+		public int Amount => (int)numAmount.Value;
 
-		#endregion
+	    #endregion
 	}
 }

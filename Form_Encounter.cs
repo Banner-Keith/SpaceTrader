@@ -1327,14 +1327,8 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public EncounterResult Result
-		{
-			get
-			{
-				return _result;
-			}
-		}
+		public EncounterResult Result => _result;
 
-		#endregion
+	    #endregion
 	}
 }

@@ -27,58 +27,39 @@ using System;
 
 namespace SpaceTrader
 {
-	public class PoliceRecord
-	{
-		#region Member Declarations
+    public class PoliceRecord
+    {
+        #region Member Declarations
 
-		private PoliceRecordType	_type;
-		private int								_minScore;
+        private PoliceRecordType _type;
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		public PoliceRecord(PoliceRecordType type, int minScore)
-		{
-			_type			= type;
-			_minScore	= minScore;
-		}
+        public PoliceRecord(PoliceRecordType type, int minScore)
+        {
+            _type = type;
+            MinScore = minScore;
+        }
 
-		public static PoliceRecord GetPoliceRecordFromScore(int PoliceRecordScore)
-		{
-			int i;
-			for (i = 0; i < Consts.PoliceRecords.Length && Game.CurrentGame.Commander.PoliceRecordScore >= Consts.PoliceRecords[i].MinScore; i++);
-			return Consts.PoliceRecords[Math.Max(0, i - 1)];
-		}
+        public static PoliceRecord GetPoliceRecordFromScore(int PoliceRecordScore)
+        {
+            int i;
+            for (i = 0; i < Consts.PoliceRecords.Length && Game.CurrentGame.Commander.PoliceRecordScore >= Consts.PoliceRecords[i].MinScore; i++) ;
+            return Consts.PoliceRecords[Math.Max(0, i - 1)];
+        }
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		public int MinScore
-		{
-			get
-			{
-				return _minScore;
-			}
-		}
+        public int MinScore { get; }
 
-		public string Name
-		{
-			get
-			{
-				return Strings.PoliceRecordNames[(int)_type];
-			}
-		}
+        public string Name => Strings.PoliceRecordNames[(int)_type];
 
-		public PoliceRecordType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+        public PoliceRecordType Type => _type;
 
-		#endregion
-	}
+        #endregion
+    }
 }

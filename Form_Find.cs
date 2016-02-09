@@ -158,22 +158,10 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public string SystemName
-		{
-			get
-			{
-				return txtSystem.Text;
-			}
-		}
+		public string SystemName => txtSystem.Text;
 
-		public bool TrackSystem
-		{
-			get
-			{
-				return chkTrack.Checked;
-			}
-		}
+	    public bool TrackSystem => chkTrack.Checked;
 
-		#endregion
+	    #endregion
 	}
 }

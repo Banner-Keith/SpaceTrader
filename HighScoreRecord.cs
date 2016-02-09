@@ -28,146 +28,110 @@ using System.Collections;
 
 namespace SpaceTrader
 {
-	public class HighScoreRecord : STSerializableObject, IComparable
-	{
-		#region Member Declarations
+    public class HighScoreRecord : STSerializableObject, IComparable
+    {
+        #region Member Declarations
 
-		private string			_name;
-		private int					_score;
-		private GameEndType	_type;
-		private int					_days;
-		private int					_worth;
-		private Difficulty	_difficulty;
+        private string _name;
+        private int _score;
+        private GameEndType _type;
+        private int _days;
+        private int _worth;
+        private Difficulty _difficulty;
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		public HighScoreRecord(string name, int score, GameEndType type, int days, int worth, Difficulty difficulty)
-		{
-			_name				= name;
-			_score			= score;
-			_type				= type;
-			_days				= days;
-			_worth			= worth;
-			_difficulty	= difficulty;
-		}
+        public HighScoreRecord(string name, int score, GameEndType type, int days, int worth, Difficulty difficulty)
+        {
+            _name = name;
+            _score = score;
+            _type = type;
+            _days = days;
+            _worth = worth;
+            _difficulty = difficulty;
+        }
 
-		public HighScoreRecord(Hashtable hash): base(hash)
-		{
-			_name				= (string)GetValueFromHash(hash, "_name");
-			_score			= (int)GetValueFromHash(hash, "_score");
-			_type				= (GameEndType)GetValueFromHash(hash, "_type");
-			_days				= (int)GetValueFromHash(hash, "_days");
-			_worth			= (int)GetValueFromHash(hash, "_worth");
-			_difficulty	= (Difficulty)GetValueFromHash(hash, "_difficulty");
-		}
+        public HighScoreRecord(Hashtable hash) : base(hash)
+        {
+            _name = (string)GetValueFromHash(hash, "_name");
+            _score = (int)GetValueFromHash(hash, "_score");
+            _type = (GameEndType)GetValueFromHash(hash, "_type");
+            _days = (int)GetValueFromHash(hash, "_days");
+            _worth = (int)GetValueFromHash(hash, "_worth");
+            _difficulty = (Difficulty)GetValueFromHash(hash, "_difficulty");
+        }
 
-		public int CompareTo(object value)
-		{
-			int							compared;
-			HighScoreRecord	highScore	= (HighScoreRecord)value;
+        public int CompareTo(object value)
+        {
+            int compared;
+            HighScoreRecord highScore = (HighScoreRecord)value;
 
-			if (value == null)
-				compared	= 1;
-			else if (highScore.Score < Score)
-				compared	= 1;
-			else if (highScore.Score > Score)
-				compared	= -1;
-			else if (highScore.Worth < Worth)
-				compared	= 1;
-			else if (highScore.Worth > Worth)
-				compared	= -1;
-			else if (highScore.Days < Days)
-				compared	= 1;
-			else if (highScore.Days > Days)
-				compared	= -1;
-			else
-				compared	= 0;
+            if (value == null)
+                compared = 1;
+            else if (highScore.Score < Score)
+                compared = 1;
+            else if (highScore.Score > Score)
+                compared = -1;
+            else if (highScore.Worth < Worth)
+                compared = 1;
+            else if (highScore.Worth > Worth)
+                compared = -1;
+            else if (highScore.Days < Days)
+                compared = 1;
+            else if (highScore.Days > Days)
+                compared = -1;
+            else
+                compared = 0;
 
-			return compared;
-		}
+            return compared;
+        }
 
-		public override Hashtable Serialize()
-		{
-			Hashtable	hash	= base.Serialize();
+        public override Hashtable Serialize()
+        {
+            Hashtable hash = base.Serialize();
 
-			hash.Add("_name",				_name);
-			hash.Add("_score",			_score);
-			hash.Add("_type",				(int)_type);
-			hash.Add("_days",				_days);
-			hash.Add("_worth",			_worth);
-			hash.Add("_difficulty",	(int)_difficulty);
+            hash.Add("_name", _name);
+            hash.Add("_score", _score);
+            hash.Add("_type", (int)_type);
+            hash.Add("_days", _days);
+            hash.Add("_worth", _worth);
+            hash.Add("_difficulty", (int)_difficulty);
 
-			return hash;
-		}
+            return hash;
+        }
 
-		#endregion
+        #endregion
 
-		#region Operators
+        #region Operators
 
-		public static bool operator > (HighScoreRecord a, HighScoreRecord b)
-		{
-			return a.CompareTo(b) > 0;
-		}
+        public static bool operator >(HighScoreRecord a, HighScoreRecord b)
+        {
+            return a.CompareTo(b) > 0;
+        }
 
-		public static bool operator < (HighScoreRecord a, HighScoreRecord b)
-		{
-			return a.CompareTo(b) < 0;
-		}
+        public static bool operator <(HighScoreRecord a, HighScoreRecord b)
+        {
+            return a.CompareTo(b) < 0;
+        }
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		public int Days
-		{
-			get
-			{
-				return _days;
-			}
-		}
+        public int Days => _days;
 
-		public Difficulty Difficulty
-		{
-			get
-			{
-				return _difficulty;
-			}
-		}
+        public Difficulty Difficulty => _difficulty;
 
-		public string Name
-		{
-			get
-			{
-				return _name;
-			}
-		}
+        public string Name => _name;
 
-		public int Score
-		{
-			get
-			{
-				return _score;
-			}
-		}
+        public int Score => _score;
 
-		public GameEndType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+        public GameEndType Type => _type;
 
-		public int Worth
-		{
-			get
-			{
-				return _worth;
-			}
-		}
+        public int Worth => _worth;
 
-		#endregion
-	}
+        #endregion
+    }
 }

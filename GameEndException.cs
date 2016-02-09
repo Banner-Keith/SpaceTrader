@@ -27,15 +27,15 @@ using System;
 
 namespace SpaceTrader
 {
-	public class GameEndException : Exception
-	{
-		#region Methods
+    public class GameEndException : Exception
+    {
+        #region Methods
 
-		public GameEndException(GameEndType endType)
-		{
-			Game.CurrentGame.EndStatus	= endType;
-		}
+        public GameEndException(GameEndType endType)
+        {
+            Game.CurrentGame.EndStatus = endType;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

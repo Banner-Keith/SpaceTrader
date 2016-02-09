@@ -28,114 +28,89 @@ using System.Collections;
 
 namespace SpaceTrader
 {
-	public class Shield : Equipment
-	{
-		#region Member Declarations
+    public class Shield : Equipment
+    {
+        #region Member Declarations
 
-		private ShieldType	_type;
-		private int					_power;
-		private int					_charge;
+        private ShieldType _type;
+        private int _power;
+        private int _charge;
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		public Shield(ShieldType type, int power, int price, TechLevel minTechLevel, int chance):
-			base(EquipmentType.Shield, price, minTechLevel, chance)
-		{
-			_type			= type;
-			_power		= power;
+        public Shield(ShieldType type, int power, int price, TechLevel minTechLevel, int chance) :
+            base(EquipmentType.Shield, price, minTechLevel, chance)
+        {
+            _type = type;
+            _power = power;
 
-			_charge		= _power;
-		}
+            _charge = _power;
+        }
 
-		public Shield(Hashtable hash): base(hash)
-		{
-			_type		= (ShieldType)GetValueFromHash(hash, "_type");
-			_power	= (int)GetValueFromHash(hash, "_power");
-			_charge	= (int)GetValueFromHash(hash, "_charge");
-		}
+        public Shield(Hashtable hash) : base(hash)
+        {
+            _type = (ShieldType)GetValueFromHash(hash, "_type");
+            _power = (int)GetValueFromHash(hash, "_power");
+            _charge = (int)GetValueFromHash(hash, "_charge");
+        }
 
-		public override Equipment Clone()
-		{
-			Shield	shield	= new Shield(_type, _power, _price, _minTech, _chance);
-			shield.Charge		= Charge;
-			return shield;
-		}
+        public override Equipment Clone()
+        {
+            Shield shield = new Shield(_type, _power, _price, _minTech, _chance) { Charge = Charge };
+            return shield;
+        }
 
-		public override Hashtable Serialize()
-		{
-			Hashtable	hash	= base.Serialize();
+        public override Hashtable Serialize()
+        {
+            Hashtable hash = base.Serialize();
 
-			hash.Add("_type",		(int)_type);
-			hash.Add("_power",	_power);
-			hash.Add("_charge",	_charge);
+            hash.Add("_type", (int)_type);
+            hash.Add("_power", _power);
+            hash.Add("_charge", _charge);
 
-			return hash;
-		}
+            return hash;
+        }
 
-		public override bool TypeEquals(object type)
-		{
-			bool equal	= false;
+        public override bool TypeEquals(object type)
+        {
+            bool equal = false;
 
-			try
-			{
-				if (Type == (ShieldType)type)
-					equal	= true;
-			}
-			catch (Exception) {}
+            try
+            {
+                if (Type == (ShieldType)type)
+                    equal = true;
+            }
+            catch (Exception) { }
 
-			return equal;
-		}
+            return equal;
+        }
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		public int Charge
-		{
-			get
-			{
-				return _charge;
-			}
-			set
-			{
-				_charge	= value;
-			}
-		}
+        public int Charge
+        {
+            get
+            {
+                return _charge;
+            }
+            set
+            {
+                _charge = value;
+            }
+        }
 
-		public override string Name
-		{
-			get
-			{
-				return Strings.ShieldNames[(int)_type];
-			}
-		}
+        public override string Name => Strings.ShieldNames[(int)_type];
 
-		public int Power
-		{
-			get
-			{
-				return _power;
-			}
-		}
+        public int Power => _power;
 
-		public ShieldType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+        public ShieldType Type => _type;
 
-		public override object SubType
-		{
-			get
-			{
-				return Type;
-			}
-		}
+        public override object SubType => Type;
 
-		#endregion
-	}
+        #endregion
+    }
 }

@@ -285,16 +285,16 @@ namespace SpaceTrader
 				case AlertType.ArrivalBuyNewspaper:
 					result	= (new FormAlert("Buy Newspaper?", "The local newspaper costs ^1. Do you wish to buy a copy?", "Buy Newspaper", DialogResult.Yes, "Cancel", DialogResult.No, args)).ShowDialog(owner);
 					break;
-				case AlertType.ArrivalIFFuel:
+				case AlertType.ArrivalIfFuel:
 					result	= (new FormAlert("No Full Tanks", "You do not have enough money to buy full tanks.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.ArrivalIFFuelRepairs:
+				case AlertType.ArrivalIfFuelRepairs:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough money to get a full tank or full hull repairs.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.ArrivalIFNewspaper:
+				case AlertType.ArrivalIfNewspaper:
 					result	= (new FormAlert("Can't Afford it!", "Sorry! A newspaper costs ^1 in this system. You don't have enough money!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.ArrivalIFRepairs:
+				case AlertType.ArrivalIfRepairs:
 					result	= (new FormAlert("No Full Repairs", "You don't have enough money to get your hull fully repaired.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.ArtifactLost:
@@ -303,7 +303,7 @@ namespace SpaceTrader
 				case AlertType.ArtifactRelinquished:
 					result	= (new FormAlert("Artifact Relinquished", "The aliens take the artifact from you.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.CargoIF:
+				case AlertType.CargoIf:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough money to spend on any of these goods.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.CargoNoEmptyBays:
@@ -425,7 +425,7 @@ namespace SpaceTrader
 					result	= (new FormAlert("Engage Marie Celeste", "The ship is empty: there is nothing in the ship's log, but the crew has vanished, leaving food on the tables and cargo in the holds. Do you wish to offload the cargo to your own holds? ", "Yes, Take Cargo", DialogResult.Yes, "No", DialogResult.No, args)).ShowDialog(owner);
 					break;
 				case AlertType.EncounterMarieCelesteNoBribe:
-					result	= (new FormAlert("No Bribe", "We'd love to take your money, but Space Command already knows you've got illegal goods onboard.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("No Bribe", "We'd love to take your money, but Space Command already knows you've got illegal goods on board.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.EncounterOpponentEscaped:
 					result	= (new FormAlert("Opponent Escaped", "Your opponent has managed to escape.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
@@ -446,7 +446,7 @@ namespace SpaceTrader
 					result	= (new FormAlert("Pirates Take Sculpture", "As the pirates ransack your ship, they find the stolen sculpture. \"This is worth thousands!\" one pirate exclaims, as he stuffs it into his pack.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.EncounterPoliceBribe:
-					result	= (new FormAlert("Bribe", "These police officers are willing to forego inspection for the amount of ^1.", "Offer Bribe", DialogResult.Yes, "Forget It", DialogResult.No, args)).ShowDialog(owner);
+					result	= (new FormAlert("Bribe", "These police officers are willing to forgo inspection for the amount of ^1.", "Offer Bribe", DialogResult.Yes, "Forget It", DialogResult.No, args)).ShowDialog(owner);
 					break;
 				case AlertType.EncounterPoliceBribeCant:
 					result	= (new FormAlert("No Bribe", "These police officers can't be bribed.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
@@ -520,7 +520,7 @@ namespace SpaceTrader
 				case AlertType.EquipmentHiddenCompartments:
 					result	= (new FormAlert("Hidden Compartments", "You now have hidden compartments equivalent to 5 extra cargo bays installed in your ship. Police won't find illegal cargo hidden in these compartments.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.EquipmentIF:
+				case AlertType.EquipmentIf:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough money to spend on this item.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.EquipmentLightningShield:
@@ -563,7 +563,7 @@ namespace SpaceTrader
 					result	= (new FormAlert("Congratulations!", "You have made the high-score list!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.GameEndHighScoreCheat:
-					result	= (new FormAlert("Naughy, Naughty!", "You would have made the high-score list if you weren't a Cheat!.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("Naughty, Naughty!", "You would have made the high-score list if you weren't a Cheat!.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.GameEndHighScoreMissed:
 					result	= (new FormAlert("Sorry", "Alas! This is not enough to enter the high-score list.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
@@ -613,13 +613,13 @@ namespace SpaceTrader
 				case AlertType.JarekTakenHome:
 					result	= (new FormAlert("Jarek Taken Home", "The Space Corps decides to give ambassador Jarek a lift home to Devidia.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.LeavingIFInsurance:
+				case AlertType.LeavingIfInsurance:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough cash to pay for your insurance.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.LeavingIFMercenaries:
+				case AlertType.LeavingIfMercenaries:
 					result	= (new FormAlert("Pay Mercenaries", "You don't have enough cash to pay your mercenaries to come with you on this trip. Fire them or make sure you have enough cash.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.LeavingIFWormholeTax:
+				case AlertType.LeavingIfWormholeTax:
 					result	= (new FormAlert("Wormhole Tax", "You don't have enough money to pay for the wormhole tax.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.MeetCaptainAhab:
@@ -680,12 +680,12 @@ namespace SpaceTrader
 					result	= (new FormAlert("Buy New Ship", "Are you sure you wish to trade in your ^1 for a new ^2^3?", "Yes", DialogResult.Yes, "No", DialogResult.No, args)).ShowDialog(owner);
 					break;
 				case AlertType.ShipBuyCrewQuarters:
-					result	= (new FormAlert("Too Many Crewmembers", "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("Too Many Crew Members", "The new ship you picked doesn't have enough quarters for all of your crew Members. First you will have to fire one or more of them.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.ShipBuyIF:
+				case AlertType.ShipBuyIf:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough money to buy this ship.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.ShipBuyIFTransfer:
+				case AlertType.ShipBuyIfTransfer:
 					result	= (new FormAlert("Not Enough Money", "You won't have enough money to buy this ship and pay the cost to transfer all of your unique equipment. You should choose carefully which items you wish to transfer!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.ShipBuyNoSlots:
@@ -706,7 +706,7 @@ namespace SpaceTrader
 				case AlertType.ShipBuyTransfer:
 					result	= (new FormAlert("Transfer ^1", "I'll transfer your ^2 to your new ship for ^3 credits.", "Do it!", DialogResult.Yes, "No thanks", DialogResult.No, args)).ShowDialog(owner);
 					break;
-				case AlertType.ShipDesignIF:
+				case AlertType.ShipDesignIf:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough money to create this design.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.ShipDesignThanks:
@@ -721,7 +721,7 @@ namespace SpaceTrader
 				case AlertType.SpecialExperimentPerformed:
 					result	= (new FormAlert("Experiment Performed", "The galaxy is abuzz with news of a terrible malfunction in Dr. Fehler's laboratory. Evidently, he was not warned in time and he performed his experiment... with disastrous results!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
-				case AlertType.SpecialIF:
+				case AlertType.SpecialIf:
 					result	= (new FormAlert("Not Enough Money", "You don't have enough cash to spend to accept this offer.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialMoonBought:
@@ -734,13 +734,13 @@ namespace SpaceTrader
 					result	= (new FormAlert("Not Enough Bays", "You don't have enough empty cargo bays at the moment.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialPassengerConcernedJarek:
-					result	= (new FormAlert("Ship's Comm.", "Commander? Jarek here. Do you require any assitance in charting a course to Devidia?", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("Ship's Comm.", "Commander? Jarek here. Do you require any assistance in charting a course to Devidia?", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialPassengerConcernedPrincess:
 					result	= (new FormAlert("Ship's Comm.", "[Ziyal] Oh Captain? (giggles) Would it help if I got out and pushed?", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialPassengerConcernedWild:
-					result	= (new FormAlert("Ship's Comm.", "Bridge? This is Jonathan. Are we there yet? Heh, heh. Sorry, I couldn't resist.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("Ship's Comm.", "Bridge? This is Jonathan. Are we there yet? Ha, ha. Sorry, I couldn't resist.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialPassengerImpatientJarek:
 					result	= (new FormAlert("Ship's Comm.", "Captain! This is the Ambassador speaking. We should have been there by now?!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
@@ -761,7 +761,7 @@ namespace SpaceTrader
 					result	= (new FormAlert("Skill Increase", "The alien increases one of your skills. ", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialTimespaceFabricRip:
-					result	= (new FormAlert("Timespace Fabric Rip", "You have flown through a tear in the timespace continuum caused by Dr. Fehler's failed experiment. You may not have reached" + Environment.NewLine + " your planned destination!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("Time-space Fabric Rip", "You have flown through a tear in the time-space continuum caused by Dr. Fehler's failed experiment. You may not have reached" + Environment.NewLine + " your planned destination!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.SpecialTrainingCompleted:
 					result	= (new FormAlert("Training Completed", "After a few hours of training with a top expert, you feel your abilities have improved significantly.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
@@ -800,7 +800,7 @@ namespace SpaceTrader
 					result	= (new FormAlert("Space Port Inspector", "Our scan reports you have ^1 tribbles on board your ship. Tribbles are pests worse than locusts! You are running the risk of getting a hefty fine!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.TribblesSqueek:
-					result	= (new FormAlert("A Tribble", "Squeek!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
+					result	= (new FormAlert("A Tribble", "Squeak!", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);
 					break;
 				case AlertType.TribblesTradeIn:
 					result	= (new FormAlert("You've Got Tribbles", "Hm. I see you got a tribble infestation on your current ship. I'm sorry, but that severely reduces the trade-in price.", "Ok", DialogResult.OK, null, DialogResult.None, args)).ShowDialog(owner);

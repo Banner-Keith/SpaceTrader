@@ -734,7 +734,7 @@ namespace SpaceTrader
 			this.lblHullStrenghLabel.Name = "lblHullStrenghLabel";
 			this.lblHullStrenghLabel.Size = new System.Drawing.Size(70, 13);
 			this.lblHullStrenghLabel.TabIndex = 13;
-			this.lblHullStrenghLabel.Text = "Hull Strengh:";
+			this.lblHullStrenghLabel.Text = "Hull Strength:";
 			// 
 			// numCargoBays
 			// 
@@ -1048,7 +1048,7 @@ namespace SpaceTrader
 
 			selTemplate.Items.Add(Consts.ShipTemplateSeparator);
 
-			// Add the buyable ship spec templates.
+			// Add the purchasable ship spec templates.
 			foreach (ShipSpec spec in Consts.ShipSpecs)
 			{
 				if (sizes.Contains(spec.Size) && (int)spec.Type <= Consts.MaxShip)
@@ -1118,7 +1118,7 @@ namespace SpaceTrader
 																(extraFuel + shipyard.PerUnitFuel) / shipyard.PerUnitFuel * shipyard.PerUnitFuel +
 																shipyard.BaseFuel));
 
-			// Fix the hull value to be a multiple of the unit value value less the base.
+			// Fix the hull value to be a multiple of the unit value less the base.
 			int extraHull	= (int)numHullStrength.Value - shipyard.BaseHull;
 			if (extraHull % shipyard.PerUnitHull > 0)
 				numHullStrength.Value	= Math.Max(numHullStrength.Minimum, (extraHull + shipyard.PerUnitHull) /

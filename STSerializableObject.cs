@@ -53,63 +53,63 @@ namespace SpaceTrader
 		 */
 		public static STSerializableObject[] ArrayListToArray(ArrayList list, string type)
 		{
-			STSerializableObject[]	array	= null;
+			STSerializableObject[] array = null;
 
 			if (list != null)
 			{
 				switch (type)
 				{
 					case "CrewMember":
-						array	= new CrewMember[list.Count];
+						array = new CrewMember[list.Count];
 						break;
 					case "Gadget":
-						array	= new Gadget[list.Count];
+						array = new Gadget[list.Count];
 						break;
 					case "HighScoreRecord":
-						array	= new HighScoreRecord[list.Count];
+						array = new HighScoreRecord[list.Count];
 						break;
 					case "Shield":
-						array	= new Shield[list.Count];
+						array = new Shield[list.Count];
 						break;
 					case "StarSystem":
-						array	= new StarSystem[list.Count];
+						array = new StarSystem[list.Count];
 						break;
 					case "Weapon":
-						array	= new Weapon[list.Count];
+						array = new Weapon[list.Count];
 						break;
 				}
 
 				for (int index = 0; index < list.Count; index++)
 				{
-					Hashtable							hash	= (Hashtable)list[index];
-					STSerializableObject	obj		= null;
+					Hashtable hash = (Hashtable)list[index];
+					STSerializableObject obj = null;
 
 					if (hash != null)
 					{
 						switch (type)
 						{
 							case "CrewMember":
-								obj	= new CrewMember(hash);
+								obj = new CrewMember(hash);
 								break;
 							case "Gadget":
-								obj	= new Gadget(hash);
+								obj = new Gadget(hash);
 								break;
 							case "HighScoreRecord":
-								obj	= new HighScoreRecord(hash);
+								obj = new HighScoreRecord(hash);
 								break;
 							case "Shield":
-								obj	= new Shield(hash);
+								obj = new Shield(hash);
 								break;
 							case "StarSystem":
-								obj	= new StarSystem(hash);
+								obj = new StarSystem(hash);
 								break;
 							case "Weapon":
-								obj	= new Weapon(hash);
+								obj = new Weapon(hash);
 								break;
 						}
 					}
 
-					array[index]	= obj;
+					array[index] = obj;
 				}
 			}
 
@@ -118,21 +118,21 @@ namespace SpaceTrader
 
 		public static int[] ArrayListToIntArray(ArrayList list)
 		{
-			int[]	array	= new int[list.Count];
+			int[] array = new int[list.Count];
 
 			for (int index = 0; index < array.Length; index++)
-				array[index]	= (int)list[index];
+				array[index] = (int)list[index];
 
 			return array;
 		}
 
 		public static ArrayList ArrayToArrayList(STSerializableObject[] array)
 		{
-			ArrayList list	= null;
+			ArrayList list = null;
 
 			if (array != null)
 			{
-				list	= new ArrayList();
+				list = new ArrayList();
 
 				foreach (STSerializableObject obj in array)
 					list.Add(obj == null ? null : obj.Serialize());

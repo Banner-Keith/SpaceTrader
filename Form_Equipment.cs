@@ -578,7 +578,7 @@ namespace SpaceTrader
 				else if (cmdr.Debt > 0)
 					FormAlert.Alert(AlertType.DebtNoBuy, this);
 				else if (selectedEquipment.Price > cmdr.CashToSpend)
-					FormAlert.Alert(AlertType.EquipmentIF, this);
+					FormAlert.Alert(AlertType.EquipmentIf, this);
 				else if ((baseType == EquipmentType.Weapon && cmdr.Ship.FreeSlotsWeapon == 0) ||
 					(baseType == EquipmentType.Shield && cmdr.Ship.FreeSlotsShield == 0) ||
 					(baseType == EquipmentType.Gadget && cmdr.Ship.FreeSlotsGadget == 0))
@@ -612,7 +612,7 @@ namespace SpaceTrader
 			{
 				if (FormAlert.Alert(AlertType.EquipmentSell, this) == DialogResult.Yes)
 				{
-					// The slot is the selected index. Two of the three list boxes will have selected indices of -1, so adding
+					// The slot is the selected index. Two of the three list boxes will have selected indexes of -1, so adding
 					// 2 to the total cancels those out.
 					int				slot	= lstSellWeapon.SelectedIndex + lstSellShield.SelectedIndex + lstSellGadget.SelectedIndex + 2;
 					Commander	cmdr	= game.Commander;
@@ -699,15 +699,15 @@ namespace SpaceTrader
 				{
 					case EquipmentType.Weapon:
 						power		= ((Weapon)selectedEquipment).Power.ToString();
-						charge	= Strings.NA;
+						charge	= Strings.Na;
 						break;
 					case EquipmentType.Shield:
 						power		= ((Shield)selectedEquipment).Power.ToString();
-						charge	= sellSideSelected ? ((Shield)selectedEquipment).Charge.ToString() : Strings.NA;
+						charge	= sellSideSelected ? ((Shield)selectedEquipment).Charge.ToString() : Strings.Na;
 						break;
 					case EquipmentType.Gadget:
-						power		= Strings.NA;
-						charge	= Strings.NA;
+						power		= Strings.Na;
+						charge	= Strings.Na;
 						break;
 				}
 

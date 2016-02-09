@@ -89,46 +89,16 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public bool Disabling
-		{
-			get
-			{
-				return _disabling;
-			}
-		}
+		public bool Disabling => _disabling;
 
-		public override string Name
-		{
-			get
-			{
-				return Strings.WeaponNames[(int)_type];
-			}
-		}
+	    public override string Name => Strings.WeaponNames[(int)_type];
 
-		public int Power
-		{
-			get
-			{
-				return _power;
-			}
-		}
+	    public int Power => _power;
 
-		public override object SubType
-		{
-			get
-			{
-				return Type;
-			}
-		}
+	    public override object SubType => Type;
 
-		public WeaponType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+	    public WeaponType Type => _type;
 
-		#endregion
+	    #endregion
 	}
 }

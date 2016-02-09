@@ -28,95 +28,71 @@ using System.Collections;
 
 namespace SpaceTrader
 {
-	public class Gadget : Equipment
-	{
-		#region Member Declarations
+    public class Gadget : Equipment
+    {
+        #region Member Declarations
 
-		private GadgetType	_type;
-		private SkillType		_skillBonus;
+        private GadgetType _type;
+        private SkillType _skillBonus;
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		public Gadget(GadgetType type, SkillType skillBonus, int price, TechLevel minTechLevel, int chance):
-			base(EquipmentType.Gadget, price, minTechLevel, chance)
-		{
-			_type				= type;
-			_skillBonus	= skillBonus;
-		}
+        public Gadget(GadgetType type, SkillType skillBonus, int price, TechLevel minTechLevel, int chance) :
+            base(EquipmentType.Gadget, price, minTechLevel, chance)
+        {
+            _type = type;
+            _skillBonus = skillBonus;
+        }
 
-		public Gadget(Hashtable hash): base(hash)
-		{
-			_type				= (GadgetType)GetValueFromHash(hash, "_type");
-			_skillBonus	= (SkillType)GetValueFromHash(hash, "_skillBonus", SkillType.NA);
-		}
+        public Gadget(Hashtable hash) : base(hash)
+        {
+            _type = (GadgetType)GetValueFromHash(hash, "_type");
+            _skillBonus = (SkillType)GetValueFromHash(hash, "_skillBonus", SkillType.Na);
+        }
 
-		public override Equipment Clone()
-		{
-			return new Gadget(_type, _skillBonus, _price, _minTech, _chance);
-		}
+        public override Equipment Clone()
+        {
+            return new Gadget(_type, _skillBonus, _price, _minTech, _chance);
+        }
 
-		public override Hashtable Serialize()
-		{
-			Hashtable	hash	= base.Serialize();
+        public override Hashtable Serialize()
+        {
+            Hashtable hash = base.Serialize();
 
-			hash.Add("_type",				(int)_type);
-			hash.Add("_skillBonus",	(int)_skillBonus);
+            hash.Add("_type", (int)_type);
+            hash.Add("_skillBonus", (int)_skillBonus);
 
-			return hash;
-		}
+            return hash;
+        }
 
-		public override bool TypeEquals(object type)
-		{
-			bool equal	= false;
+        public override bool TypeEquals(object type)
+        {
+            bool equal = false;
 
-			try
-			{
-				if (Type == (GadgetType)type)
-					equal	= true;
-			}
-			catch (Exception) {}
+            try
+            {
+                if (Type == (GadgetType)type)
+                    equal = true;
+            }
+            catch (Exception) { }
 
-			return equal;
-		}
+            return equal;
+        }
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		public override string Name
-		{
-			get
-			{
-				return Strings.GadgetNames[(int)_type];
-			}
-		}
+        public override string Name => Strings.GadgetNames[(int)_type];
 
-		public override object SubType
-		{
-			get
-			{
-				return Type;
-			}
-		}
+        public override object SubType => Type;
 
-		public GadgetType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+        public GadgetType Type => _type;
 
-		public SkillType SkillBonus
-		{
-			get
-			{
-				return _skillBonus;
-			}
-		}
+        public SkillType SkillBonus => _skillBonus;
 
-		#endregion
-	}
+        #endregion
+    }
 }

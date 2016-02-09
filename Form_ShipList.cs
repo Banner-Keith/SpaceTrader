@@ -919,7 +919,7 @@ namespace SpaceTrader
 				btnBuy[i].Visible	= false;
 
 				if (Consts.ShipSpecs[i].MinimumTechLevel > game.Commander.CurrentSystem.TechLevel)
-					lblPrice[i].Text	= Strings.CargoBuyNA;
+					lblPrice[i].Text	= Strings.CargoBuyNa;
 				else if (Consts.ShipSpecs[i].Type == game.Commander.Ship.Type)
 					lblPrice[i].Text	= Strings.ShipBuyGotOne;
 				else

@@ -17,7 +17,7 @@
 	Redesigned Equipment screen
 	Redesigned Personnel screen
 	Added color to Special button
-	Added some tooltips
+	Added some tool-tips
 	Added 15 new mercenaries and 8 new systems; allow up to three mercenaries per system at when new game is started
 	Added option to show newspaper automatically on arrival
 	Redesigned the saved game file format, so that new versions of Space Trader will always be able to open saved games from previous versions (back to 2.0)
@@ -29,7 +29,7 @@
 	Added lots more images for equipment, etc.
 	Require confirmation when loading a game, starting a new game, or quitting game (but only when at least one day has passed since the last save)
 	Fixed code that generates opponents - the opponents were usually weaker than they should have been
-	Added 2 new weapons that can disable an opponent without distroying them
+	Added 2 new weapons that can disable an opponent without destroying them
 
 
 TODO:

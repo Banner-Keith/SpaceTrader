@@ -473,14 +473,8 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public GameOptions Options
-		{
-			get
-			{
-				return _options;
-			}
-		}
+		public GameOptions Options => _options;
 
-		#endregion
+	    #endregion
 	}
 }

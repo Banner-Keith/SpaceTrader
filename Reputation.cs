@@ -32,16 +32,15 @@ namespace SpaceTrader
 		#region Member Declarations
 
 		private ReputationType	_type;
-		private int							_minScore;
 
-		#endregion
+	    #endregion
 
 		#region Methods
 
 		public Reputation(ReputationType type, int minScore)
 		{
 			_type			= type;
-			_minScore	= minScore;
+			MinScore	= minScore;
 		}
 
 		public static Reputation GetReputationFromScore(int ReputationScore)
@@ -55,30 +54,12 @@ namespace SpaceTrader
 
 		#region Properties
 
-		public int MinScore
-		{
-			get
-			{
-				return _minScore;
-			}
-		}
+		public int MinScore { get; }
 
-		public string Name
-		{
-			get
-			{
-				return Strings.ReputationNames[(int)_type];
-			}
-		}
+	    public string Name => Strings.ReputationNames[(int)_type];
 
-		public ReputationType Type
-		{
-			get
-			{
-				return _type;
-			}
-		}
+	    public ReputationType Type => _type;
 
-		#endregion
+	    #endregion
 	}
 }
